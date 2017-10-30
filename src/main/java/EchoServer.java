@@ -13,19 +13,22 @@ public class EchoServer {
 
     public void run() {
         String line = null;
+            line = getInput();
+        while (!line.equals("exit")) {
+            output.println(line);
+            line = getInput();
+        }
+        output.println("Bye bye!");
+    }
+
+    private String getInput() {
+        String line = null;
         try {
             line = input.readLine();
+            System.out.println(line);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        while (!line.equals("exit")) {
-            output.println(line);
-            try {
-                line = input.readLine();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        output.println("Bye bye!");
+        return line;
     }
 }
