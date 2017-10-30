@@ -15,7 +15,6 @@ public class EchoServer {
         String line = null;
         try {
             line = input.readLine();
-            System.out.println(line);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -23,12 +22,10 @@ public class EchoServer {
             output.println(line);
             try {
                 line = input.readLine();
-                System.out.println(line);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
         output.println("Bye bye!");
     }
-
 }
