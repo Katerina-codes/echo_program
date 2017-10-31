@@ -22,7 +22,8 @@ public class EchoServerTest {
 
         server.run();
 
-        assertEquals("hello\nBye bye!\n", output.toString());
+        assertTrue(output.toString().contains("hello\n"));
+        assertTrue(output.toString().contains("Bye bye!\n"));
     }
 
     @Test
@@ -34,7 +35,7 @@ public class EchoServerTest {
 
         server.run();
 
-        assertEquals("Bye bye!\n", output.toString());
+        assertTrue(output.toString().contains("Bye bye!\n"));
     }
 
     @Test
