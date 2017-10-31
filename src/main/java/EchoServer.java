@@ -12,7 +12,6 @@ public class EchoServer {
     }
 
     public void run() {
-
         String line = getInput();
         while (!line.equals("exit")) {
             output.println(line);
