@@ -12,8 +12,8 @@ public class EchoServer {
     }
 
     public void run() {
-        String line = null;
-            line = getInput();
+
+        String line = getInput();
         while (!line.equals("exit")) {
             output.println(line);
             line = getInput();
@@ -22,10 +22,10 @@ public class EchoServer {
     }
 
     private String getInput() {
-        String line = null;
+        String line;
         try {
+            output.println("Enter some text or type 'exit' to quit:");
             line = input.readLine();
-            System.out.println(line);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
