@@ -1,33 +1,31 @@
 package main.java;
 
-import java.io.*;
-
 public class EchoServer {
-    private final BufferedReader input;
-    private final PrintStream output;
+    private InputOutput inputOutput;
 
-    public EchoServer(InputStream input, PrintStream output) {
-        this.input = new BufferedReader(new InputStreamReader(input));
-        this.output = output;
+    public EchoServer(InputOutput inputOutput) {
+        this.inputOutput = inputOutput;
     }
 
     public void run() {
         String line = getInput();
         while (!line.equals("exit")) {
-            output.println(line);
+            inputOutput.printLine(line);
             line = getInput();
         }
-        output.println("Bye bye!");
+        printExitMessage();
+    }
+
+    private void promptUserForInput() {
+        inputOutput.promptUserForInput();
     }
 
     private String getInput() {
-        String line;
-        try {
-            output.println("Enter some text or type 'exit' to quit:");
-            line = input.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return line;
+        promptUserForInput();
+        return inputOutput.getInput();
+    }
+
+    private void printExitMessage() {
+        inputOutput.printExitMessage();
     }
 }

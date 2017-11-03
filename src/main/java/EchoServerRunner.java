@@ -2,7 +2,8 @@ package main.java;
 
 public class EchoServerRunner {
     public static void main(String[] args) {
-        EchoServer server = new EchoServer(System.in, System.out);
+        CommandLine inputOutput = new CommandLine(System.in, System.out);
+        EchoServer server = new EchoServer(inputOutput);
         server.run();
     }
 }
