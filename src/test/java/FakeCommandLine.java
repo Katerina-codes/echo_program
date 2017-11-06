@@ -19,15 +19,13 @@ public class FakeCommandLine implements InputOutput {
     }
 
     @Override
-    public String printExitMessage() {
+    public void printExitMessage() {
         this.printExitMessageWasCalled = true;
-        return "Bye bye!";
     }
 
     @Override
-    public String promptUserForInput() {
+    public void promptUserForInput() {
         this.promptUserForInputWasCalled = true;
-        return "Enter some text or type 'exit' to quit:";
     }
 
     public boolean getInputWasCalled() {

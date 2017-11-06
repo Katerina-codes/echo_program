@@ -28,12 +28,12 @@ public class CommandLine implements InputOutput {
     }
 
     @Override
-    public String printExitMessage() {
-        return "Bye bye!";
+    public void printExitMessage() {
+        output.println("Bye bye!");
     }
 
     @Override
-    public String promptUserForInput() {
-        return "Enter some text or type 'exit' to quit:";
+    public void promptUserForInput() {
+        output.println("Enter some text or type 'exit' to quit:");
     }
 }
